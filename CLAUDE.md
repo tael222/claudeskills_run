@@ -341,3 +341,120 @@ logger.error("에러 메시지")
 - **Claude Code Documentation**: https://docs.claude.com/en/docs/claude-code
   - 스킬 작성 가이드
   - API 사용법
+
+## 🚀 Current Progress & Next Steps
+
+### ✅ Completed (as of 2025-01-12)
+
+1. **Database Models**
+   - ✅ Workflow, Skill, Project models with SQLAlchemy
+   - ✅ Pydantic schemas for validation
+   - ✅ Async/Sync database session support
+
+2. **REST API Endpoints**
+   - ✅ `/api/workflows` - Full CRUD
+   - ✅ `/api/skills` - Create, Read, List
+   - ✅ `/api/projects` - Create, Read, List
+   - ✅ Auto-generated Swagger docs at `/api/docs`
+
+3. **Workflow Execution Engine**
+   - ✅ `BaseWorkflow` abstract class
+   - ✅ `WorkflowExecutor` registration system
+   - ✅ Example workflows: EchoWorkflow, FileOperationsWorkflow, DataProcessingWorkflow
+   - ✅ Automatic status tracking (pending → running → completed/failed)
+
+4. **Development Tools**
+   - ✅ Playwright integration for screenshots
+   - ✅ Rich logging
+   - ✅ CLI commands (init, server, workflows, skills)
+
+### 📋 TODO: Next Steps
+
+**Priority 1: Workflow Execution API**
+```bash
+# Add workflow execution endpoint to src/api/routes/workflows.py
+# POST /api/workflows/{workflow_id}/execute
+# GET /api/workflows/{workflow_id}/logs
+```
+
+**Priority 2: Claude Skills Integration**
+```bash
+# 1. Create src/skills/ module structure
+# 2. Implement Skills manager (load, validate, execute)
+# 3. Port 1-2 skills from bear2u/my-skills
+#    - Recommended: code-changelog or web-to-markdown
+# 4. Add Claude API integration
+```
+
+**Priority 3: React Frontend**
+```bash
+# 1. Initialize React project
+cd frontend
+npm create vite@latest . -- --template react-ts
+
+# 2. Install dependencies
+npm install axios @tanstack/react-query
+npm install -D tailwindcss postcss autoprefixer
+
+# 3. Create basic dashboard structure
+#    - Dashboard page
+#    - Workflows list/detail
+#    - Skills list
+#    - Projects list
+```
+
+**Priority 4: Testing & Documentation**
+```bash
+# 1. Write API tests
+pytest tests/test_api.py
+
+# 2. Update README with examples
+# 3. Add workflow usage examples
+```
+
+### 🎯 How to Continue in Next Session
+
+#### Option 1: Simple Command (Recommended)
+Just say to Claude Code:
+```
+Continue implementing the next priorities in CLAUDE.md.
+Start with Priority 1: Workflow Execution API.
+```
+
+#### Option 2: Specific Task
+```
+Implement the workflow execution API endpoint as described in CLAUDE.md.
+Add POST /api/workflows/{id}/execute and test it.
+```
+
+#### Option 3: Review First
+```
+Review the current project status and show me what's been completed.
+Then continue with the next priority tasks.
+```
+
+### 📊 Quick Health Check Commands
+
+```bash
+# Check if everything is working
+source venv/bin/activate
+claudeskills init run
+claudeskills server start
+
+# Open browser to check API
+open http://127.0.0.1:8000/api/docs
+
+# Run tests
+pytest
+
+# Check git status
+git status
+git log --oneline -5
+```
+
+### 🔗 Important Links
+
+- **GitHub**: https://github.com/tael222/claudeskills_run
+- **API Docs**: http://127.0.0.1:8000/api/docs (when server is running)
+- **Reference**: https://github.com/bear2u/my-skills (for skills porting)
+
