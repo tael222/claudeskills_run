@@ -6,7 +6,7 @@ from typing import AsyncGenerator
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.api.routes import health
+from src.api.routes import health, projects, skills, workflows
 from src.core.config import settings
 from src.core.database import init_db
 from src.core.logger import logger
@@ -52,6 +52,9 @@ app.add_middleware(
 
 # Include routers
 app.include_router(health.router, prefix="/api", tags=["health"])
+app.include_router(workflows.router, prefix="/api/workflows", tags=["workflows"])
+app.include_router(skills.router, prefix="/api/skills", tags=["skills"])
+app.include_router(projects.router, prefix="/api/projects", tags=["projects"])
 
 
 @app.get("/")

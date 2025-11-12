@@ -56,6 +56,9 @@ Documentation = "https://github.com/yourusername/claudeskills-run#readme"
 Repository = "https://github.com/yourusername/claudeskills-run"
 Issues = "https://github.com/yourusername/claudeskills-run/issues"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
 [tool.black]
 line-length = 100
 target-version = ['py310', 'py311', 'py312']
